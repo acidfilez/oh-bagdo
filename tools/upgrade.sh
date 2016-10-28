@@ -38,7 +38,7 @@ ohBagdoFetch()
 
     if [[ "$RESULT" =~ .*up-to-date.* ]]
     then
-      #printf "${YELLOW}%s\n" "[Oh Bagdo] Hooray! Oh Bagdo has been updated and/or is at the current version."
+      printf "${YELLOW}%s\n" "[Oh Bagdo] Hooray! Oh Bagdo has been updated and/or is at the current version."
     else
       printf "${YELLOW}%s${NORMAL}\n" '[Oh Bagdo] Oh Bagdo is not up-to-date.'
 
