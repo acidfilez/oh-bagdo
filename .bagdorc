@@ -1,0 +1,145 @@
+# User configuration
+export PATH="$PATH"
+
+################################################################################################################
+# Acid commands starts here
+
+export LC_CTYPE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+#Custom
+#alias "server"="./server.sh"
+alias "cls"="clear"
+alias "ls"="ls -lG"
+alias "la"="ls -la"
+
+#alias "art"="/usr/local/php5/bin/php artisan"
+
+alias "ducks"="du -cks * | sort -rn | head"
+alias "tail-last"="tail -f $(ls -1t | head -1)"
+
+alias "config-host"="subl /etc/hosts"
+alias "config-zsh"="subl ~/.zshrc"
+alias "config-ohbagdo"="subl $BAGDO/.bagdorc"
+
+#Apple:
+alias "apple-deriveddata"="cd ~/Library/Developer/Xcode/DerivedData"
+alias "apple-iphone-simulator"="cd ~/Library/Application Support/iPhone Simulator"
+alias "apple-rm-deriveddata"="rm -rf ~/Library/Developer/Xcode/DerivedData"
+alias "apple-archives"="cd ~/Library/Developer/Xcode/Archives"
+
+#Development
+alias "xcode"="open -a Xcode "
+alias "st"="open -a SourceTree . "
+#open workspaces for ios
+alias "xcode8"="find . -name *.xcworkspace -type d -exec open -a Xcode {} \;"
+alias "xcode8-beta"="find . -name *.xcworkspace -type d -exec open -a Xcode-beta {} \;"
+alias "ios-simulator"="open -n /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+
+alias "resourceme"="source $HOME/.zshrc"
+alias "subl"="open -a 'Sublime Text'"
+
+#Nginx on your machine.
+alias "nginx-local-start"="sudo nginx"
+alias "nginx-local-stop"="sudo nginx -s stop"
+alias "nginx-local-restart"="sudo nginx -s stop;sudo nginx"
+
+#Ionic
+alias "bagdo-ionic-open-xcode"="cd platforms/ios;find . -name *.xcodeproj -type d -exec open -a Xcode {} \;"
+
+#Bagdo alias for android
+export BAGDO_EXT_AND="$BAGDO/tools/android"
+export PATH="$BAGDO_EXT_AND:$PATH"
+
+
+#Node, usin nodemon
+alias "server-node"="nodemon server.js"
+
+
+#ANDROID
+bagdo-ionic-build () { #builds ionic for ios and android #
+
+   echo -e "\033[38;5;148m Ionic builds for IOS and Android \033[39m"
+   echo "Executing: ionic build ios &"
+   echo "Executing: ionic build android &"
+   ionic build ios &
+   ionic build android &
+}
+
+bagdo-ionic-run-android () { #runs ionic build android #
+
+   echo -e "\033[38;5;148m Ionic runs Android \033[39m"
+   echo "Executing: ionic run android"
+   ionic run android
+}
+
+
+bagdo-android-logs () { #log android device via tag #
+
+    echo -e "\033[38;5;148m Android Device Logs \033[39m"
+
+    echo "adb logcat -v time"
+
+    adb logcat -v time
+}
+
+bagdo-android-log-analitics () { #log android device via tag #
+
+    echo -e "\033[38;5;148m Android Device Logs \033[39m"
+
+    echo "adb shell setprop log.tag.GAv4 DEBUG"
+    echo "adb logcat -v time -s GAv4"
+
+    adb shell setprop log.tag.GAv4 DEBUG
+    adb logcat -v time -s GAv4
+}
+
+bagdo-android-log-tag () { #log android device via tag #
+
+    echo -e "\033[38;5;148m Android Device Logs \033[39m"
+
+    echo -e "\033[38;5;148m 1 arg = $1  is a tag   \033[39m "
+
+    echo "adb shell setprop log.tag.$1 DEBUG"
+    echo "adb logcat -v time -s $1"
+
+    adb shell setprop log.tag.$1 DEBUG
+    adb logcat -v time -s $1
+}
+
+bagdo-help () { #This help #arg 1 = pattern => example ssh will look for bagdo-ssh #
+    echo -e "\033[38;5;148m Help File    \033[39m "
+    echo -e "\033[38;5;148m 1 arg = $1    \033[39m "
+    echo -e "\033[38;5;148mCommand List: \033[39m"
+    grep  "^bagdo-$1" $BAGDO/.bagdorc | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+    /g'
+
+}
+
+function chrome(){ open -a "Google Chrome" "$*" }
+
+
+bagdo-docker-container () { #docker containers #
+
+    echo -e "\033[38;5;148m Docker Container \033[39m"
+
+    echo "docker ps"
+
+    docker ps
+}
+
+
+bagdo-docker-images () { #docker containers #
+
+    echo -e "\033[38;5;148m Docker Container \033[39m"
+
+    echo "docker images"
+
+    docker images
+}
+
+#finnaly check update, this will check git status, and ask to upgrade if necesary.
+/bin/sh $BAGDO/tools/upgrade.sh
+
+
+

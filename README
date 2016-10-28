@@ -1,0 +1,11 @@
+
+Create the ~/.oh-bagdo folder, and clone this there!
+
+on ~/.zshrc , add the following lines at the end of the document: 
+
+export BAGDO=$HOME/.oh-bagdo
+source $BAGDO/.bagdorc
+
+
+and you are ready to rock. 
+
