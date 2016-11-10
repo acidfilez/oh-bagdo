@@ -42,7 +42,7 @@ ohBagdoFetch()
 
       printf '%s\n' '                       '
 
-      printf "${GREEN}%s\n"  "[Oh Bagdo] Would you like to check for updates? [Y/n]: "
+      printf "${GREEN}%s\n"  "[Oh Bagdo] Would you like to pull updates? [Y/n]: "
       printf '%s' "$NORMAL"
 
       read line
