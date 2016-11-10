@@ -27,19 +27,17 @@ ohBagdoFetch()
     printf "${YELLOW}%s\n" "[Oh Bagdo] Checking Version on Background."
 
     # Print the next twirly character at colume 45
-    cd "$BAGDO"
-    RESULTGREP=$(git fetch origin master)
+    cd "$HOME_BAGDO"
+    RESULTGREP=$(git fetch origin master -q)
     RESULT=$(git status | grep 'up-to-date')
 
-    printf '%s\n' ''
-    printf '%s' "${BOLD}" "$RESULTGREP"
-    printf '%s' "${BOLD}" "$RESULT"
-    printf '%s\n' ' '
+    # printf '%s\n' ''
+    # printf '%s' "${BOLD}" "$RESULTGREP"
+    # printf '%s' "${BOLD}" "$RESULT"
+    # printf '%s\n' ' '
 
-    if [[ "$RESULT" =~ .*up-to-date.* ]]
+    if [[ ! "$RESULT" =~ .*up-to-date.* ]]
     then
-      printf "${YELLOW}%s\n" "[Oh Bagdo] Hooray! Oh Bagdo has been updated and/or is at the current version."
-    else
       printf "${YELLOW}%s${NORMAL}\n" '[Oh Bagdo] Oh Bagdo is not up-to-date.'
 
       printf '%s\n' '                       '
@@ -64,19 +62,17 @@ ohBagdoFetch()
         printf "${Green}%s\n" "[Oh Bagdo] Important Run This Command Now !!!: ${RED}resourceme"
         printf '%s' "$NORMAL"
 
+        printf "${GREEN}%s\n"  "[Oh Bagdo] Press [Enter] To Continue: "
+        read line
+
       else
         printf '%s\n' '                       '
         printf "${YELLOW}%s\n" "[Oh Bagdo] See yaa ..."
         printf '%s' "$NORMAL"
-
       fi
     fi
 
     cd ~/
-
-    printf "${GREEN}%s\n"  "[Oh Bagdo] Press [Enter] To Continue: "
-    read line
-
 }
 
 ohBagdoLogo()

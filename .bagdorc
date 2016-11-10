@@ -8,263 +8,82 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
 #Custom
-#alias "server"="./server.sh"
-alias "cls"="clear"
-alias "ls"="ls -lG"
-alias "la"="ls -la"
-
-#alias "art"="/usr/local/php5/bin/php artisan"
-
-alias "ducks"="du -cks * | sort -rn | head"
-alias "tail-last"="tail -f $(ls -1t | head -1)"
-
 alias "config-host"="subl /etc/hosts"
 alias "config-zsh"="subl ~/.zshrc"
-alias "config-ohbagdo"="subl $BAGDO/.bagdorc"
-
-#Apple:
-alias "apple-deriveddata"="cd ~/Library/Developer/Xcode/DerivedData"
-alias "apple-iphone-simulator"="cd ~/Library/Application Support/iPhone Simulator"
-alias "apple-rm-deriveddata"="rm -rf ~/Library/Developer/Xcode/DerivedData"
-alias "apple-archives"="cd ~/Library/Developer/Xcode/Archives"
-
-#Development
-alias "xcode"="open -a Xcode "
-alias "st"="open -a SourceTree . "
-#open workspaces for ios
-alias "xcode8"="find . -name *.xcworkspace -type d -exec open -a Xcode {} \;"
-alias "xcode8-beta"="find . -name *.xcworkspace -type d -exec open -a Xcode-beta {} \;"
-alias "ios-simulator"="open -n /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
-
+alias "config-ohbagdo"="subl $HOME_BAGDO/"
 alias "resourceme"="source $HOME/.zshrc"
-alias "subl"="open -a 'Sublime Text'"
 
-#Nginx on your machine.
-alias "nginx-local-start"="sudo nginx"
-alias "nginx-local-stop"="sudo nginx -s stop"
-alias "nginx-local-restart"="sudo nginx -s stop;sudo nginx"
-
-
-#Bagdo alias for android
-export BAGDO_EXT_AND="$BAGDO/tools/android"
-export PATH="$BAGDO_EXT_AND:$PATH"
-
-#Node, using nodemon monitor to restart development
-alias "server-node"="nodemon server.js"
-
-
-#Ionics
-
-bagdo-ionic-release-android () { #ionic full android release #
-
-    echo -e "\033[38;5;148m Ionic Full Android Release \033[39m"
-    echo "Executing: ionic build android --release"
-    echo "Executing: jarsigner && zipalign"
-    echo "Executing: adb install"
-
-    echo -e "\033[38;5;148m Building Android Release \033[39m"
-
-    ionic build android --release
-
-    echo -e "\033[38;5;148m Sign Android armv7 Release \033[39m"
-
-    echo "Press y to continue building armv7..."
-
-    read line
-
-    if [ "$line" = Y ] || [ "$line" = y ] || [ -z "$line" ]; then
-
-        # Space pressed, do something
-
-
-        jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../credentials/CredencialesPagoClickAndroid/copec.key platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk pagoclick
-        rm platforms/android/build/outputs/apk/copec_pagoclick_armv7.apk
-        $ANDROID_PLATFORM_TOOLS/../build-tools/24.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk platforms/android/build/outputs/apk/copec_pagoclick_armv7.apk
-
-
-    else
-        # Anything else pressed, do whatever else.
-        echo "Skipping armv7"
-    fi
-
-    echo -e "\033[38;5;148m Sign Android x86 Release \033[39m"
-
-    echo "Press y to continue building x86..."
-
-    read line
-
-    if [ "$line" = Y ] || [ "$line" = y ] || [ -z "$line" ]; then
-        # Space pressed, do something
-
-
-        jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../credentials/CredencialesPagoClickAndroid/copec.key platforms/android/build/outputs/apk/android-x86-release-unsigned.apk pagoclick
-        rm platforms/android/build/outputs/apk/copec_pagoclick_x86.apk
-        $ANDROID_PLATFORM_TOOLS/../build-tools/24.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-x86-release-unsigned.apk  platforms/android/build/outputs/apk/copec_pagoclick_x86.apk
-
-    else
-        # Anything else pressed, do whatever else.
-        echo "Skipping x86"
-    fi
-
-
-
-
-    echo -e "\033[38;5;148m Now You can Manually install this via adb \033[39m"
-
-    echo
-
-    echo "adb install -r platforms/android/build/outputs/apk/copec_pagoclick_armv7.apk"
-    echo "adb install -r platforms/android/build/outputs/apk/copec_pagoclick_x86.apk"
-}
-
-bagdo-ionic-reset () { #ionic state reset #
-
-   echo -e "\033[38;5;148m Ionic State Reset for IOS and Android \033[39m"
-   echo "Executing: ionic state reset"
-   ionic state reset
-}
-
-bagdo-ionic-platform-reset-android () { #reset android platform #
-
-   echo -e "\033[38;5;148m Ionic Reset Platform Android \033[39m"
-   echo "Executing: ionic platform rm android; ionic platform add android;"
-
-   ionic platform rm android; ionic platform add android;
-}
-
-bagdo-ionic-platform-reset-ios () { #reset ios platform #
-
-   echo -e "\033[38;5;148m Ionic Reset Platform iOS \033[39m"
-   echo "Executing: ionic platform rm ios; ionic platform add ios;"
-
-   ionic platform rm ios; ionic platform add ios;
-}
-
-bagdo-ionic-platform-reset () { #reset ios and android platform #
-
-   echo -e "\033[38;5;148m Ionic Reset Platform iOS & Android \033[39m"
-   echo "Executing: ionic platform rm ios; ionic platform add ios;"
-   echo "Executing: ionic platform rm android; ionic platform add android;"
-
-   ionic platform rm ios; ionic platform add ios;
-   ionic platform rm android; ionic platform add android;
-}
-
-bagdo-ionic-build () { #builds ionic for ios and android #
-
-   echo -e "\033[38;5;148m Ionic builds for IOS and Android \033[39m"
-   echo "Executing: ionic build ios &"
-   echo "Executing: ionic build android &"
-   ionic build ios &
-   ionic build android &
-}
-
-bagdo-ionic-open-xcode () { #open ionic ios xcode project#
-
-   echo -e "\033[38;5;148m Opens Ionic iOS Xcode Project \033[39m"
-   echo "Executing: cd platforms/ios;find . -name *.xcodeproj -type d -exec open -a Xcode {} \;cd ..."
-
-   cd platforms/ios
-   find . -name *.xcodeproj -type d -exec open -a Xcode {} \;
-   cd ..
-   cd ..
-}
-
-bagdo-ionic-run-android () { #runs ionic build android #
-
-   echo -e "\033[38;5;148m Ionic runs Android \033[39m"
-   echo "Executing: ionic run android --device"
-   ionic run android --device
-}
-
-bagdo-ionic-run-ios () { #runs ionic build ios #
-
-   echo -e "\033[38;5;148m Ionic runs iOS \033[39m"
-   echo "Executing: ionic run iOS --device"
-   echo "Note: Sometimes its necesary to run twice this command:/"
-   ionic run ios --device
-}
-
-bagdo-ionic-run-developemnt-ios () { #runs ionic build ios #
-
-   echo -e "\033[38;5;148m Ionic runs iOS \033[39m"
-   echo "Executing: ionic run ios --device -l -c"
-   echo "Note: Sometimes its necesary to run twice this command:/"
-   ionic run ios --device -l -c
-}
-
-bagdo-ionic-open-apks () { #goto and open apks #
-
-   echo -e "\033[38;5;148m Ionic Goto And Open apks \033[39m"
-   echo "Executing: cd platforms/android/build/outputs/apk;open .;"
-
-   cd platforms/android/build/outputs/apk
-   open .
-}
-
-bagdo-android-logs () { #log android device via tag #
-
-    echo -e "\033[38;5;148m Android Device Logs \033[39m"
-
-    echo "adb logcat -v time"
-
-    adb logcat -v time
-}
-
-bagdo-android-log-analitics () { #log android device via tag #
-
-    echo -e "\033[38;5;148m Android Device Logs \033[39m"
-
-    echo "adb shell setprop log.tag.GAv4 DEBUG"
-    echo "adb logcat -v time -s GAv4"
-
-    adb shell setprop log.tag.GAv4 DEBUG
-    adb logcat -v time -s GAv4
-}
-
-bagdo-android-log-tag () { #log android device via tag #
-
-    echo -e "\033[38;5;148m Android Device Logs \033[39m"
-
-    echo -e "\033[38;5;148m 1 arg = $1  is a tag   \033[39m "
-
-    echo "adb shell setprop log.tag.$1 DEBUG"
-    echo "adb logcat -v time -s $1"
-
-    adb shell setprop log.tag.$1 DEBUG
-    adb logcat -v time -s $1
-}
+#Editable bagdorc, users can edit this file instead :) to load plugings.
+bagdorc="$HOME/.bagdorc"
 
 bagdo-help () { #This help #arg 1 = pattern => example ssh will look for bagdo-ssh #
     echo -e "\033[38;5;148m Help File    \033[39m "
     echo -e "\033[38;5;148m 1 arg = $1    \033[39m "
     echo -e "\033[38;5;148mCommand List: \033[39m"
-    grep  "^bagdo-$1" $BAGDO/.bagdorc | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+
+    grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/utilities.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
     /g'
 
+    grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/android.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+    /g'
+
+    grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/apple.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+    /g'
+
+
+    grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/development_apps.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+    /g'
+
+    grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/docker.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+    /g'
+
+    grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/ionic.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+    /g'
+
+    grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/nginx.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+    /g'
 }
 
-function chrome(){ open -a "Google Chrome" "$*" }
+bagdo-plugin-init () { # create bagdo init file#
+    echo -e "\033[38;5;148m Creating $bagdorc File    \033[39m "
+    echo -e "\033[38;5;148m Enable plugins like java, android, apple, ionic: \033[39m "
+    echo -e "\033[38;5;148m vi $bagdorc  \033[39m "
 
+cat <<END >$bagdorc
+    #Enable java
+    #source $HOME_BAGDO/tools/plugins/java.sh
 
-bagdo-docker-container () { #docker containers #
+    #Enable unix utilites commands
+    #source $HOME_BAGDO/tools/plugins/utilities.sh
 
-    echo -e "\033[38;5;148m Docker Container \033[39m"
+    #Enable android commands
+    #source $HOME_BAGDO/tools/plugins/android.sh
 
-    echo "docker ps"
+    #Enable apple commands
+    #source $HOME_BAGDO/tools/plugins/apple.sh
 
-    docker ps
-}
+    #Enable development applications like subl, xcode, etc commands
+    #source $HOME_BAGDO/tools/plugins/development_apps.sh
 
+    #Enable docker commands
+    #source $HOME_BAGDO/tools/plugins/docker.sh
 
-bagdo-docker-images () { #docker containers #
+    #Enable ionic commands
+    #source $HOME_BAGDO/tools/plugins/ionic.sh
 
-    echo -e "\033[38;5;148m Docker Container \033[39m"
-
-    echo "docker images"
-
-    docker images
+    #Enable nginix commands, for mac only
+    #source $HOME_BAGDO/tools/plugins/nginx.sh
+END
 }
 
 #finnaly check update, this will check git status, and ask to upgrade if necesary.
-/bin/sh $BAGDO/tools/upgrade.sh
+/bin/sh $HOME_BAGDO/tools/upgrade.sh
+
+#check if the plugins are loaded
+if [ -f "$bagdorc" ];
+then
+  source $bagdorc
+else
+  echo -e "\033[38;5;148m .bagdorc not found, please create it using:   \033[39m "
+  echo -e "\033[38;5;148m bagdo-plugin-init  \033[39m "
+fi
