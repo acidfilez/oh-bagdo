@@ -1,13 +1,17 @@
 
+Install 'Automatic' strongly recommende
 
-## Automatic
+## Mode Automatic
 
-Copy and paste this line the Terminal and press Enter. Enjoy the text flying on the screen, it will take quite some time (approximately 30 minutes). Installer might ask for your administrator password. Grabbing a refreshing drink before starting is encouraged!
+Copy and paste this line the Terminal and press Enter.
 
     bash < <(curl -sL https://raw.github.com/acidfilez/oh-bagdo/master/install-osx.sh)
 
+Enjoy the text flying on the screen, follow the leader.
 
-## Manual
+
+
+## Mode Manual
 
 Create the ~/.oh-bagdo folder, and clone this there!
 
