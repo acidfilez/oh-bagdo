@@ -1,11 +1,20 @@
 
+
+## Automatic
+
+Copy and paste this line the Terminal and press Enter. Enjoy the text flying on the screen, it will take quite some time (approximately 30 minutes). Installer might ask for your administrator password. Grabbing a refreshing drink before starting is encouraged!
+
+    bash < <(curl -sL https://raw.github.com/acidfilez/oh-bagdo/master/install-osx.sh)
+
+
+## Manual
+
 Create the ~/.oh-bagdo folder, and clone this there!
 
-on ~/.zshrc , add the following lines at the end of the document:
+  on ~/.zshrc , add the following lines at the end of the document:
 
-export HOME_BAGDO=$HOME/.oh-bagdo
-source $HOME_BAGDO/.bagdorc
-
+    export HOME_BAGDO=$HOME/.oh-bagdo
+    source $HOME_BAGDO/.bagdorc
 
 and you are ready to rock.
 
