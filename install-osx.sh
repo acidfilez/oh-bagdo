@@ -7,11 +7,13 @@ ROOT_BAGDORC_FILE="$ROOT_HOME_PATH/.bagdorc"
 ROOT_ZSHRC_FILE="$ROOT_HOME_PATH/.zshrc"
 
 
-echo -e "\033[38;5;148m Trying to install <Oh-Bagdo/>\033[39m"
+bagdo-install () {
+  echo -e "\033[38;5;148m Trying to install <Oh-Bagdo/>\033[39m"
 
-bagdo-clone
-bagdo-zshrc
-bagdo-plugin-install
+  bagdo-clone
+  bagdo-zshrc
+  bagdo-plugin-install
+}
 
 
 ## Inner functions Below
@@ -35,7 +37,8 @@ if [ ! "$result" = "" ]
     echo -e "\033[38;5;148m Skip, Oh-Bagdo already addedin your:\033[39m $ROOT_ZSHRC_FILE"
   else
     echo -e "\033[38;5;148m Adding, Oh-Bagdo in your: \033[39m$ROOT_ZSHRC_FILE"
-    cat <<EOT >> $ROOT_ZSHRC_FILE
+
+cat <<EOT >> $ROOT_ZSHRC_FILE
 
 #Bootstrap Oh-Bagdo
 export HOME_BAGDO=$HOME/.oh-bagdo
@@ -87,3 +90,7 @@ END
 fi
 
 }
+
+##Start Installing
+
+bagdo-install
