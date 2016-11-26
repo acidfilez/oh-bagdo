@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ROOT_HOME_PATH="$HOME/test2"
+ROOT_HOME_PATH="$HOME"
 ROOT_BAGDO_PATH="$ROOT_HOME_PATH/.oh-bagdo"
 ROOT_ZSHRC_FILE="$ROOT_HOME_PATH/.zshrc"
 ROOT_GIT_URL="https://github.com/acidfilez/oh-bagdo.git"
