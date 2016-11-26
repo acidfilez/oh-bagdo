@@ -4,8 +4,43 @@ ROOT_HOME_PATH="$HOME"
 ROOT_BAGDO_PATH="$ROOT_HOME_PATH/.oh-bagdo"
 ROOT_GIT_URL="https://github.com/acidfilez/oh-bagdo.git"
 ROOT_BAGDORC_FILE="$ROOT_HOME_PATH/.bagdorc"
-ROOT_BAGDORC_TEMPLATE_FILE="$ROOT_HOME_PATH/tools/templates/.bagdorc.template"
 ROOT_ZSHRC_FILE="$ROOT_HOME_PATH/.zshrc"
+
+
+bagdo-plugin-install () { # create bagdo init file#
+    echo -e "\033[38;5;148m Creating $ROOT_BAGDORC_FILE File    \033[39m "
+    echo -e "\033[38;5;148m Enable plugins like java, android, apple, ionic: \033[39m "
+    echo -e "\033[38;5;148m vi $ROOT_BAGDORC_FILE  \033[39m "
+
+cat <<END >$ROOT_BAGDORC_FILE
+    #Enable java
+    #source $HOME_BAGDO/tools/plugins/java.sh
+
+    #Enable unix utilites commands
+    #source $HOME_BAGDO/tools/plugins/utilities.sh
+
+    #Enable android commands
+    #source $HOME_BAGDO/tools/plugins/android.sh
+
+    #Enable apple commands
+    #source $HOME_BAGDO/tools/plugins/apple.sh
+
+    #Enable development applications like subl, xcode, etc commands
+    #source $HOME_BAGDO/tools/plugins/development_apps.sh
+
+    #Enable docker commands
+    #source $HOME_BAGDO/tools/plugins/docker.sh
+
+    #Enable ionic commands
+    #source $HOME_BAGDO/tools/plugins/ionic.sh
+
+    #Enable nginix commands, for mac only
+    #source $HOME_BAGDO/tools/plugins/nginx.sh
+
+    #Enable ruby commands
+    #source $HOME_BAGDO/tools/plugins/ruby.sh
+END
+}
 
 echo -e "\033[38;5;148mTrying to install <Oh-Bagdo/>\033[39m"
 
@@ -18,8 +53,7 @@ else
   if [ -f "$ROOT_BAGDORC_FILE" ]; then
     echo -e "\033[38;5;148mSkip, .bagdorc file exist @:\033[39m $ROOT_BAGDORC_FILE"
   else
-    echo -e "\033[38;5;148mCreating, .bagdorc to:\033[39m $ROOT_BAGDORC_FILE"
-    cp $ROOT_BAGDORC_TEMPLATE_FILE $ROOT_BAGDORC_FILE
+    bagdo-plugin-install
   fi
 
 fi
