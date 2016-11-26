@@ -7,10 +7,53 @@ ROOT_BAGDORC_FILE="$ROOT_HOME_PATH/.bagdorc"
 ROOT_ZSHRC_FILE="$ROOT_HOME_PATH/.zshrc"
 
 
+echo -e "\033[38;5;148m Trying to install <Oh-Bagdo/>\033[39m"
+
+bagdo-clone
+bagdo-zshrc
+bagdo-plugin-install
+
+
+## Inner functions Below
+bagdo-clone () {
+
+if [ -d "$ROOT_BAGDO_PATH" ]; then
+  echo -e "\033[38;5;148m Skip, Oh-Bagdo directory exist @:\033[39m $ROOT_BAGDO_PATH"
+else
+  echo -e "\033[38;5;148m Fetching, Oh-Bagdo From:\033[39m $ROOT_GIT_URL"
+  git clone $ROOT_GIT_URL $ROOT_BAGDO_PATH
+fi
+
+}
+
+bagdo-zshrc () {
+
+result=$(grep "Bootstrap Oh-Bagdo" $ROOT_ZSHRC_FILE)
+
+if [ ! "$result" = "" ]
+  then
+    echo -e "\033[38;5;148m Skip, Oh-Bagdo already addedin your:\033[39m $ROOT_ZSHRC_FILE"
+  else
+    echo -e "\033[38;5;148m Adding, Oh-Bagdo in your: \033[39m$ROOT_ZSHRC_FILE"
+    cat <<EOT >> $ROOT_ZSHRC_FILE
+
+#Bootstrap Oh-Bagdo
+export HOME_BAGDO=$HOME/.oh-bagdo
+source $HOME_BAGDO/.bagdorc
+
+EOT
+fi
+
+}
+
 bagdo-plugin-install () { # create bagdo init file#
-    echo -e "\033[38;5;148m Creating $ROOT_BAGDORC_FILE File    \033[39m "
-    echo -e "\033[38;5;148m Enable plugins like java, android, apple, ionic: \033[39m "
-    echo -e "\033[38;5;148m vi $ROOT_BAGDORC_FILE  \033[39m "
+
+if [ -f "$ROOT_BAGDORC_FILE" ]; then
+  echo -e "\033[38;5;148m Skip, .bagdorc file exist @:\033[39m $ROOT_BAGDORC_FILE"
+else
+  echo -e "\033[38;5;148m Creating $ROOT_BAGDORC_FILE File    \033[39m "
+  echo -e "\033[38;5;148m Enable plugins like java, android, apple, ionic: \033[39m "
+  echo -e "\033[38;5;148m vi $ROOT_BAGDORC_FILE  \033[39m "
 
 cat <<END >$ROOT_BAGDORC_FILE
     #Enable java
@@ -40,39 +83,7 @@ cat <<END >$ROOT_BAGDORC_FILE
     #Enable ruby commands
     #source $HOME_BAGDO/tools/plugins/ruby.sh
 END
+
+fi
+
 }
-
-echo -e "\033[38;5;148mTrying to install <Oh-Bagdo/>\033[39m"
-
-if [ -d "$ROOT_BAGDO_PATH" ]; then
-  echo -e "\033[38;5;148mSkip, Oh-Bagdo directory exist @:\033[39m $ROOT_BAGDO_PATH"
-else
-  echo -e "\033[38;5;148mFetching, Oh-Bagdo From:\033[39m $ROOT_GIT_URL"
-  git clone $ROOT_GIT_URL $ROOT_BAGDO_PATH
-
-  if [ -f "$ROOT_BAGDORC_FILE" ]; then
-    echo -e "\033[38;5;148mSkip, .bagdorc file exist @:\033[39m $ROOT_BAGDORC_FILE"
-  else
-    bagdo-plugin-install
-  fi
-
-fi
-
-result=$(grep "Bootstrap Oh-Bagdo" $ROOT_ZSHRC_FILE)
-
-if [ ! "$result" = "" ]
-  then
-    echo -e "\033[38;5;148mSkip, Oh-Bagdo already addedin your:\033[39m $ROOT_ZSHRC_FILE"
-  else
-    echo -e "\033[38;5;148mAdding, Oh-Bagdo in your: \033[39m$ROOT_ZSHRC_FILE"
-    cat <<EOT >> $ROOT_ZSHRC_FILE
-
-#Bootstrap Oh-Bagdo
-export HOME_BAGDO=$HOME/.oh-bagdo
-source $HOME_BAGDO/.bagdorc
-
-EOT
-fi
-
-
-
