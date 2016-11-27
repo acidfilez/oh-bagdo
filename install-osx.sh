@@ -14,7 +14,7 @@ bagdo-install () {
 
   bagdo-clone
 
-  if [ "$INSTALL_TYPE" -ne 1 ] && [ "$INSTALL_TYPE" -ne 2 ]; then
+  if [ "$INSTALL_TYPE" -ne 1 -a "$INSTALL_TYPE" -ne 2 ]; then
     echo -e "\033[38;5;148m Good Bye \033[39m"
   else
     if [ "$INSTALL_TYPE" = 1 ]; then
