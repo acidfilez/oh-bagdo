@@ -2,6 +2,7 @@
 
 ROOT_HOME_PATH="$HOME"
 ROOT_BAGDO_PATH="$ROOT_HOME_PATH/.oh-bagdo"
+ROOT_BAGDO_ZSH_PATH="$ZSH_CUSTOM/plugins/oh-bagdo"
 ROOT_GIT_URL="https://github.com/acidfilez/oh-bagdo.git"
 ROOT_BAGDORC_FILE="$ROOT_HOME_PATH/.bagdorc"
 ROOT_ZSHRC_FILE="$ROOT_HOME_PATH/.zshrc"
@@ -19,12 +20,26 @@ bagdo-install () {
 ## Inner functions Below
 bagdo-clone () {
 
-if [ -d "$ROOT_BAGDO_PATH" ]; then
-  echo -e "\033[38;5;148m Skip, Oh-Bagdo directory exist @:\033[39m $ROOT_BAGDO_PATH"
-else
-  echo -e "\033[38;5;148m Fetching, Oh-Bagdo From:\033[39m $ROOT_GIT_URL"
-  git clone $ROOT_GIT_URL $ROOT_BAGDO_PATH
-fi
+  echo -e "\033[38;5;148m What type of installation do you want to perfom ? xD \033[39m"
+
+  echo -e "\033[38;5;148m     1) Install Oh-Bagdo at home: $ROOT_BAGDO_PATH \033[39m"
+  echo -e "\033[38;5;148m     2) Install Oh-Bagdo as zsh plugin: $ROOT_BAGDO_ZSH_PATH \033[39m"
+
+  echo "Enter Option (1,2,3):"
+  read line
+
+  if [ "$line" = 1 ]; then
+    if [ -d "$ROOT_BAGDO_PATH" ]; then
+      echo -e "\033[38;5;148m Skip, Oh-Bagdo directory exist @:\033[39m $ROOT_BAGDO_PATH"
+    else
+      echo -e "\033[38;5;148m Fetching, Oh-Bagdo From:\033[39m $ROOT_GIT_URL"
+      git clone $ROOT_GIT_URL $ROOT_BAGDO_PATH
+    fi
+  fi
+
+  if [ "$line" = 2 ]; then
+    echo 'as a plugin'
+  fi
 
 }
 
