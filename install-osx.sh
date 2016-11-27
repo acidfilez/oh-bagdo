@@ -10,22 +10,21 @@ ROOT_ZSHRC_FILE="$ROOT_HOME_PATH/.zshrc"
 INSTALL_TYPE=0
 
 bagdo-install () {
+
   echo -e "\033[38;5;148m Trying to install <Oh-Bagdo/>\033[39m"
 
   bagdo-clone
 
-
-    if [ "$INSTALL_TYPE" = 1 ]; then
-      bagdo-zshrc
-      bagdo-rc-file-install
-      bagdo-end
-    elif [ "$INSTALL_TYPE" = 2 ]; then
-      bagdo-rc-file-install
-      bagdo-end
-    else
-      echo -e "\033[38;5;148m Good Bye \033[39m"
-    fi
-
+  if [ "$INSTALL_TYPE" = 1 ]; then
+    bagdo-zshrc
+    bagdo-rc-file-install
+    bagdo-end
+  elif [ "$INSTALL_TYPE" = 2 ]; then
+    bagdo-rc-file-install
+    bagdo-end
+  else
+    echo -e "\033[38;5;148m Good Bye \033[39m"
+  fi
 }
 
 
