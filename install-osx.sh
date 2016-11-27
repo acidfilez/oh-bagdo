@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ROOT_HOME_PATH="$HOME"
 ROOT_BAGDO_PATH="$ROOT_HOME_PATH/.oh-bagdo"
