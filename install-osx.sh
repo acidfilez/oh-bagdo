@@ -14,19 +14,18 @@ bagdo-install () {
 
   bagdo-clone
 
-  if [ "$INSTALL_TYPE" -ne 1 -a "$INSTALL_TYPE" -ne 2 ]; then
-    echo -e "\033[38;5;148m Good Bye \033[39m"
-  else
+
     if [ "$INSTALL_TYPE" = 1 ]; then
       bagdo-zshrc
       bagdo-rc-file-install
       bagdo-end
-    fi
-    if [ "$INSTALL_TYPE" = 2 ]; then
+    elif [ "$INSTALL_TYPE" = 2 ]; then
       bagdo-rc-file-install
       bagdo-end
+    else
+      echo -e "\033[38;5;148m Good Bye \033[39m"
     fi
-  fi
+
 }
 
 
