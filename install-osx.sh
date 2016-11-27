@@ -37,7 +37,8 @@ bagdo-clone () {
   echo -e "\033[38;5;148m     2) Install Oh-Bagdo as zsh plugin: $ROOT_BAGDO_ZSH_PATH \033[39m"
 
   echo "Enter Option (1,2):"
-  read INSTALL_TYPE </dev/tty
+
+  read INSTALL_TYPE  < /proc/${PPID}/fd/0
 
   if [ "$INSTALL_TYPE" = 1 ]; then
     if [ -d "$ROOT_BAGDO_PATH" ]; then
