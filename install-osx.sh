@@ -76,7 +76,7 @@ cat <<EOT >> $ROOT_ZSHRC_FILE
 
 #Bootstrap Oh-Bagdo
 export HOME_BAGDO=\$HOME/.oh-bagdo
-source \$HOME/.bagdorc
+source \$HOME_BAGDO/oh-bagdo.sh
 
 EOT
 
@@ -87,7 +87,6 @@ cat <<EOT >> $ROOT_ZSHRC_FILE
 #Bootstrap Oh-Bagdo
 #Installed Oh My ZSH Plugin
 export HOME_BAGDO=$ROOT_BAGDO_ZSH_PATH
-source \$HOME/.bagdorc
 
 EOT
 
