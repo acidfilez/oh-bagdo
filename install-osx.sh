@@ -20,13 +20,13 @@ bagdo-install () {
     bagdo-rc-file-install
     bagdo-end
   elif [ "$INSTALL_TYPE" = 2 ]; then
+    bagdo-zshrc
     bagdo-rc-file-install
     bagdo-end
   else
     echo -e "\033[38;5;148m Good Bye \033[39m"
   fi
 }
-
 
 ## Inner functions Below
 bagdo-clone () {
@@ -70,13 +70,28 @@ if [ ! "$result" = "" ]
   else
     echo -e "\033[38;5;148m Modifying File: \033[39m$ROOT_ZSHRC_FILE"
 
+    if [ "$INSTALL_TYPE" = 1 ]; then
+
 cat <<EOT >> $ROOT_ZSHRC_FILE
 
 #Bootstrap Oh-Bagdo
 export HOME_BAGDO=\$HOME/.oh-bagdo
-source \$HOME_BAGDO/.bagdorc
+source \$HOME/.bagdorc
 
 EOT
+
+    elif [ "$INSTALL_TYPE" = 2 ]; then
+
+cat <<EOT >> $ROOT_ZSHRC_FILE
+
+#Bootstrap Oh-Bagdo
+#Installed Oh My ZSH Plugin
+export HOME_BAGDO=$ROOT_BAGDO_ZSH_PATH
+source \$HOME/.bagdorc
+
+EOT
+
+    fi
 fi
 
 }
@@ -90,33 +105,41 @@ else
   echo -e "\033[38;5;148m Enable plugins like java, android, apple, ionic: \033[39m "
   echo -e "\033[38;5;148m vi $ROOT_BAGDORC_FILE  \033[39m "
 
+  if [ "$INSTALL_TYPE" = 1 ]; then
+    BAGDO_TARGET="$HOME_BAGDO"
+  fi
+
+  if [ "$INSTALL_TYPE" = 2 ]; then
+    BAGDO_TARGET="$ROOT_BAGDO_ZSH_PATH"
+  fi
+
 cat <<END >$ROOT_BAGDORC_FILE
     #Enable java
-    #source \$HOME_BAGDO/tools/plugins/java.sh
+    #source $BAGDO_TARGET/tools/plugins/java.sh
 
     #Enable unix utilites commands
-    #source \$HOME_BAGDO/tools/plugins/utilities.sh
+    #source $BAGDO_TARGET/tools/plugins/utilities.sh
 
     #Enable android commands
-    #source \$HOME_BAGDO/tools/plugins/android.sh
+    #source $BAGDO_TARGET/tools/plugins/android.sh
 
     #Enable apple commands
-    #source \$HOME_BAGDO/tools/plugins/apple.sh
+    #source $BAGDO_TARGET/tools/plugins/apple.sh
 
     #Enable development applications like subl, xcode, etc commands
-    #source \$HOME_BAGDO/tools/plugins/development_apps.sh
+    #source $BAGDO_TARGET/tools/plugins/development_apps.sh
 
     #Enable docker commands
-    #source \$HOME_BAGDO/tools/plugins/docker.sh
+    #source $BAGDO_TARGET/tools/plugins/docker.sh
 
     #Enable ionic commands
-    #source \$HOME_BAGDO/tools/plugins/ionic.sh
+    #source $BAGDO_TARGET/tools/plugins/ionic.sh
 
     #Enable nginix commands, for mac only
-    #source \$HOME_BAGDO/tools/plugins/nginx.sh
+    #source $BAGDO_TARGET/tools/plugins/nginx.sh
 
     #Enable ruby commands
-    #source \$HOME_BAGDO/tools/plugins/ruby.sh
+    #source $BAGDO_TARGET/tools/plugins/ruby.sh
 END
 
 fi

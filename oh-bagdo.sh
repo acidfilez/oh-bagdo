@@ -1,6 +1,10 @@
 # User configuration
 export PATH="$PATH"
 
+if [ "$HOME_BAGDO" = "" ]; then
+  HOME_BAGDO=$(dirname "$0")
+fi
+
 ################################################################################################################
 # Bagdo commands starts here
 
