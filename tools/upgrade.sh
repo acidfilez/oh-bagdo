@@ -20,6 +20,10 @@ else
   NORMAL=""
 fi
 
+if [ "$HOME_BAGDO" = "" ]; then
+  HOME_BAGDO=$(dirname "$0")
+fi
+
 ohBagdoFetch()
 {
 
