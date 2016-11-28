@@ -38,7 +38,7 @@ bagdo-clone () {
 
   echo "Enter Option (1,2):"
 
-  read -t 10 INSTALL_TYPE
+  read  INSTALL_TYPE
 
   if [ "$INSTALL_TYPE" = 1 ]; then
     if [ -d "$ROOT_BAGDO_PATH" ]; then

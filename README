@@ -5,11 +5,7 @@ Install 'Automatic' strongly recommende
 
 Copy and paste this line the Terminal and press Enter.
 
-    bash < <(curl -H "Cache-Control: no-cache" -sL https://raw.github.com/acidfilez/oh-bagdo/master/install-osx.sh)
-
-    or
-
-    curl -L -H "Cache-Control: no-cache" -sL https://raw.github.com/acidfilez/oh-bagdo/master/install-osx.sh | bash
+    bash <(curl -H "Cache-Control: no-cache" -sL https://raw.github.com/acidfilez/oh-bagdo/master/install-osx.sh)
 
 Enjoy the text flying on the screen, follow the leader.
 
