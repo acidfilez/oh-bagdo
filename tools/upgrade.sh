@@ -99,7 +99,7 @@ ohBagdoLogo()
   printf '%s\n' '▒█░░░ ▒█░ ▒█▀▄░ ▒█▀▀▀ 　 ▒█▄▄█ 　 ▒█▀▀▄ ▒█░░▒█ ░▀▀▀▄   ░▀▀▀▄     '
   printf '%s\n' '▒█▄▄█ ▄█▄ ▒█░▒█ ▒█▄▄▄ 　 ▒█░▒█ 　 ▒█▄▄█ ▒█▄▄▄█ ▒█▄▄▄█▒█▄▄▄█      '
   printf '%s\n' '                                                                '
-  printf '%s\n' ' version 2.2.1'
+  printf '%s\n' ' version 2.2.2'
   printf '%s\n' '                                                                '
   printf '%s' "$NORMAL"
 }
