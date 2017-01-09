@@ -104,10 +104,6 @@ ohBagdoLogo()
   printf '%s' "$NORMAL"
 }
 
-
 ohBagdoLogo
 
 ohBagdoFetch &
-
-
-

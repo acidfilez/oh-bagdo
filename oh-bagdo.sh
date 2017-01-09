@@ -15,6 +15,8 @@ export LC_ALL="en_US.UTF-8"
 alias "config-host"="subl /etc/hosts"
 alias "config-zsh"="subl ~/.zshrc"
 alias "config-ohbagdo"="subl $HOME_BAGDO/"
+alias "config-ohbagdorc"="subl ~/.bagdorc"
+
 
 #Editable bagdorc, users can edit this file instead :) to load plugings.
 bagdorc="$HOME/.bagdorc"
