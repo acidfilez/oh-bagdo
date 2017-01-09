@@ -16,6 +16,7 @@ alias "config-host"="subl /etc/hosts"
 alias "config-zsh"="subl ~/.zshrc"
 alias "config-ohbagdo"="subl $HOME_BAGDO/"
 alias "config-ohbagdorc"="subl ~/.bagdorc"
+alias "config-zhs-ohbagdo-plugin"="subl $HOME_BAGDO/"
 
 
 #Editable bagdorc, users can edit this file instead :) to load plugings.
