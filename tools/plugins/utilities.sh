@@ -103,7 +103,34 @@ bagdo-utils-copy-dir () { #Clones a directory#
     echo -e "\033[38;5;148m 1 arg = $1  is directory you want to clone   \033[39m"
     echo -e "\033[38;5;148m 2 arg = $2  new directory path  \033[39m"
 
-    echo -e "\033[38;5;148m cp -avr $1 $2   \033[39m"
+    echo -e "\033[38;5;148m cp -av $1 $2   \033[39m"
 
-    cp -avr $1 $2
+    cp -av $1 $2
 }
+
+
+bagdo-utils-find-text () { #Finds a text recursively in all files#
+
+    echo -e "\033[38;5;148m Finds a text recursively in all files \033[39m"
+
+    echo -e "\033[38;5;148m 1 arg = $1  inital path   \033[39m"
+    echo -e "\033[38;5;148m 2 arg = $2  text to find  \033[39m"
+
+    echo -e "\033[38;5;148m find $1 -type f -exec grep -H '$2' {} \;   \033[39m"
+
+    find $1 -type f -exec grep -H -q -s '$2' {} \;
+}
+
+
+bagdo-utils-find-file-with-text () { #Finds the files with a specific text recursively#
+
+    echo -e "\033[38;5;148m Finds the files with a specific text recursively \033[39m"
+
+    echo -e "\033[38;5;148m 1 arg = $1  inital path   \033[39m"
+    echo -e "\033[38;5;148m 2 arg = $2  text to find  \033[39m"
+
+    echo -e "\033[38;5;148m grep -r -q -s $2 $1   \033[39m"
+
+    grep -r -q -s $2 $1
+}
+
