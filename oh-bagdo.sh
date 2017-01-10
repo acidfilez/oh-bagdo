@@ -51,6 +51,9 @@ bagdo-help () { #This help #arg 1 = pattern => example ssh will look for bagdo-s
 
     grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/ruby.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
     /g'
+
+    grep  "^bagdo-$1" $HOME_BAGDO/tools/plugins/ruby-gems/torquebox.sh | sed 's/bagdo/- bagdo/g' | sed 's/()/ /g' | sed 's/{/ /g' | sed 's/#/\
+    /g'
 }
 
 bagdo-plugin-init () { # create bagdo init file#
@@ -85,6 +88,9 @@ cat <<END >$bagdorc
 
     #Enable ruby commands
     #source $HOME_BAGDO/tools/plugins/ruby.sh
+
+    #Enable ruby-gems commands (torquebox etc)
+    #source $HOME_BAGDO/tools/plugins/ruby-gems/torquebox.sh
 END
 }
 

@@ -139,6 +139,9 @@ cat <<END >$ROOT_BAGDORC_FILE
 
     #Enable ruby commands
     #source $BAGDO_TARGET/tools/plugins/ruby.sh
+
+    #Enable ruby-gems commands (torquebox etc)
+    #source $HOME_BAGDO/tools/plugins/ruby-gems/torquebox.sh
 END
 
 fi
