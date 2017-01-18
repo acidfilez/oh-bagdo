@@ -75,9 +75,9 @@ sed -i.bak 's/\\n/\
   echo -e "\033[38;5;148m step 10: please enter the new container port: '8080' \033[39m"
   read SOLR_PORT
 
-  echo -e "\033[38;5;148m docker run --name $SOLR_NAME -d -p $SOLR_PORT:8080 -v $PATH_CORE:/opt/solr/example/solr/$CORE_NAME -v /Users/mch/DockerSolrShared/solr.xml:/opt/solr/example/solr/solr.xml modyodx/modyo-solr:1.1 \033[39m"
+  echo -e "\033[38;5;148m docker run --name $SOLR_NAME -d -p $SOLR_PORT:8080 -v $PATH_CORE:/opt/solr/example/solr/$CORE_NAME -v $ROOT_SHARED_DOCKER_DATA/solr.xml:/opt/solr/example/solr/solr.xml modyodx/modyo-solr:1.1 \033[39m"
 
-  docker run --name $SOLR_NAME -d -p $SOLR_PORT:8080 -v $PATH_CORE:/opt/solr/example/solr/$CORE_NAME -v /Users/mch/DockerSolrShared/solr.xml:/opt/solr/example/solr/solr.xml modyodx/modyo-solr:1.1
+  docker run --name $SOLR_NAME -d -p $SOLR_PORT:8080 -v $PATH_CORE:/opt/solr/example/solr/$CORE_NAME -v $ROOT_SHARED_DOCKER_DATA/solr.xml:/opt/solr/example/solr/solr.xml modyodx/modyo-solr:1.1
 
 
   echo -e "\033[38;5;148m check your solr and collection at: \033[39m"
