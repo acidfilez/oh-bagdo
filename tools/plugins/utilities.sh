@@ -77,6 +77,20 @@ bagdo-utils-tar-gz () { #Compress folder (tar and gz)#
 }
 
 
+bagdo-utils-un-tar-gz () { #Un Compress folder a tar.gz file#
+
+    echo -e "\033[38;5;148m Compres Folder \033[39m"
+
+    echo -e "\033[38;5;148m 1 arg = $1  is the name of your name.tar.gz   \033[39m"
+
+    echo -e "\033[38;5;148m tar -xvzf $1   \033[39m"
+
+    echo -e "\033[38;5;148m This make take a while   \033[39m"
+
+    tar -xvzf $1
+}
+
+
 bagdo-utils-find-ip4-interface () { #Find the ipv4 on interface en0, eth0, lo0, bridge0, awdl0, utun0#
 
     echo -e "\033[38;5;148m Find the ipv4 on interface en0, eth0, lo0, bridge0, awdl0, utun0 \033[39m"
