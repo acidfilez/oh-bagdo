@@ -101,7 +101,7 @@ ohBagdoLogo()
   printf '%s\n' '                                                                '
   printf '%s\n' ' version 2.3.0'
   printf '%s\n' ' what´s up: new docker alias'
-  printf '%s\n' ' check-them out: boado-help docker'
+  printf '%s\n' ' check-them out: bagdo-help docker'
   printf '%s\n' '                                                                '
   printf '%s' "$NORMAL"
 }
