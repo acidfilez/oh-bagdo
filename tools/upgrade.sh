@@ -99,9 +99,14 @@ ohBagdoLogo()
   printf '%s\n' '▒█░░░ ▒█░ ▒█▀▄░ ▒█▀▀▀ 　 ▒█▄▄█ 　 ▒█▀▀▄ ▒█░░▒█ ░▀▀▀▄   ░▀▀▀▄     '
   printf '%s\n' '▒█▄▄█ ▄█▄ ▒█░▒█ ▒█▄▄▄ 　 ▒█░▒█ 　 ▒█▄▄█ ▒█▄▄▄█ ▒█▄▄▄█▒█▄▄▄█      '
   printf '%s\n' '                                                                '
-  printf '%s\n' ' version 2.3.0'
-  printf '%s\n' ' what´s up: new docker alias'
-  printf '%s\n' ' check-them out: bagdo-help docker'
+  printf '%s\n' ' version 2.3.1'
+  printf '%s\n' ' what´s up:'
+  printf '%s\n' ' '
+  printf '%s\n' '   - new docker alias'
+  printf '%s\n' '     check-them out: bagdo-help docker'
+  printf '%s\n' ' '
+  printf '%s\n' '   - docker solr42 install'
+  printf '%s\n' '     check-them out: bash <(curl -H "Cache-Control: no-cache" -sL https://raw.github.com/acidfilez/oh-bagdo/master/tools/scripts/docker/docker-install-solr42-osx.sh)'
   printf '%s\n' '                                                                '
   printf '%s' "$NORMAL"
 }

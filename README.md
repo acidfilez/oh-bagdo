@@ -23,3 +23,12 @@ Create the ~/.oh-bagdo folder, and clone this there!
 ```
 
 and you are ready to rock.
+
+
+## Goodies
+
+Install solar4.2 for example
+
+```bash
+    bash <(curl -H "Cache-Control: no-cache" -sL https://raw.github.com/acidfilez/oh-bagdo/master/tools/scripts/docker/docker-install-solr42-osx.sh)
+```
