@@ -3,11 +3,22 @@
 bagdo-ionic-release-android () { #ionic full android release #
 
     echo -e "\033[38;5;148m Ionic Full Android Release \033[39m"
+    echo "Executing: ionic state reset"
     echo "Executing: ionic build android --release"
     echo "Executing: jarsigner && zipalign"
     echo "Executing: adb install"
 
     echo -e "\033[38;5;148m Building Android Release \033[39m"
+
+    echo -e "\033[38;5;148m Insert Version Number, example: {8_0_1_PROD, 8_2_0_QA} \033[39m"
+
+    read VERSION_TAG
+
+    ionic state reset
+
+    echo -e "\033[38;5;148m Please Run Your Apps First, to check if they are Okey \033[39m"
+
+    read WAIT_PLAZ
 
     ionic build android --release
 
@@ -23,7 +34,7 @@ bagdo-ionic-release-android () { #ionic full android release #
 
         jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../credentials/CredencialesPagoClickAndroid/copec.key platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk pagoclick
         rm platforms/android/build/outputs/apk/copec_pagoclick_armv7.apk
-        $ANDROID_PLATFORM_TOOLS/../build-tools/24.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk platforms/android/build/outputs/apk/copec_pagoclick_armv7.apk
+        $ANDROID_PLATFORM_TOOLS/../build-tools/24.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-armv7-release-unsigned.apk platforms/android/build/outputs/apk/copec_pagoclick_armv7_$VERSION_TAG.apk
 
 
     else
@@ -42,7 +53,7 @@ bagdo-ionic-release-android () { #ionic full android release #
 
         jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../credentials/CredencialesPagoClickAndroid/copec.key platforms/android/build/outputs/apk/android-x86-release-unsigned.apk pagoclick
         rm platforms/android/build/outputs/apk/copec_pagoclick_x86.apk
-        $ANDROID_PLATFORM_TOOLS/../build-tools/24.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-x86-release-unsigned.apk  platforms/android/build/outputs/apk/copec_pagoclick_x86.apk
+        $ANDROID_PLATFORM_TOOLS/../build-tools/24.0.3/zipalign -v 4 platforms/android/build/outputs/apk/android-x86-release-unsigned.apk  platforms/android/build/outputs/apk/copec_pagoclick_x86_$VERSION_TAG.apk
 
     else
         # Anything else pressed, do whatever else.

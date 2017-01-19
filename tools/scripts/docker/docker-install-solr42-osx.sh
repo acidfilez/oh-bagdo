@@ -87,6 +87,11 @@ sed -i.bak 's/\\n/\
   echo -e "\033[38;5;148m http://localhost:$SOLR_PORT/solr/ \033[39m"
   echo -e "\033[38;5;148m http://localhost:$SOLR_PORT/solr/#/~cores/$CORE_NAME \033[39m"
 
+  echo -e "\033[38;5;148m  \033[39m"
+  echo -e "\033[38;5;148m  To Create New Core: \033[39m"
+  echo -e "\033[38;5;148m  Note: pst, your docker container name is: $SOLR_NAME \033[39m"
+  echo -e "\033[38;5;148m  cd $SOLR42_MOUNT_AT;sh create_core.sh \033[39m"
+
 }
 
 
