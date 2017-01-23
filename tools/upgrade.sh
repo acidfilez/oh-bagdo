@@ -107,6 +107,9 @@ ohBagdoLogo()
   printf '%s\n' ' '
   printf '%s\n' '   - docker solr42 install'
   printf '%s\n' '     check-them out: bash <(curl -H "Cache-Control: no-cache" -sL https://raw.github.com/acidfilez/oh-bagdo/master/tools/scripts/docker/docker-install-solr42-osx.sh)'
+  printf '%s\n' ' '
+  printf '%s\n' '   - docker mysql5632 install'
+  printf '%s\n' '     check-them out: bash <(curl -H "Cache-Control: no-cache" -sL https://raw.github.com/acidfilez/oh-bagdo/master/tools/scripts/docker/docker-install-mysql5632-osx.sh)'
   printf '%s\n' '                                                                '
   printf '%s' "$NORMAL"
 }
