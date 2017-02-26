@@ -1,6 +1,6 @@
+#!/bin/bash
 
 #use full shortcuts
-
 
 #goodies
 alias "cls"="clear"

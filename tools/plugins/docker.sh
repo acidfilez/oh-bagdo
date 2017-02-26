@@ -1,3 +1,5 @@
+#!/bin/bash
+
 bagdo-docker-container () { #docker containers that are active #
 
     echo -e "\033[38;5;148m Active Docker Container \033[39m"
@@ -102,3 +104,22 @@ bagdo-docker-push () { #run a container using an image with a default user. #
 
     docker push $1
 }
+
+bagdo-docker-delete-all-containers () { #deletes all container #
+
+    echo -e "\033[38;5;148m Delete all containers  \033[39m"
+
+    echo -e "\033[38;5;148m docker rm $(docker ps -a -q) --force \033[39m "
+
+    docker rm $(docker ps -a -q) --force
+}
+
+bagdo-docker-delete-all-images () { #deletes all iamges #
+
+    echo -e "\033[38;5;148m Delete all images  \033[39m"
+
+    echo -e "\033[38;5;148m docker rmi $(docker images -q) --force \033[39m "
+
+    docker rmi $(docker images -q) --force
+}
+

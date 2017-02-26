@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Bagdo alias for ruby
 
 #Ruby PATH

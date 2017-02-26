@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # User configuration
 export PATH="$PATH"
 

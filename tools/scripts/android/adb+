@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Script adb+
 # Usage
 # You can run any command adb provides on all your currently connected devices

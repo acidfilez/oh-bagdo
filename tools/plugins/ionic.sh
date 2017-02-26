@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Ionics
 
 bagdo-ionic-release-android () { #ionic full android release #

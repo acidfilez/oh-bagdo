@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Bagdo alias for torquebox
 
 bagdo-ruby-gem-torquebox-kill () { #Kills the torquebox then jboss#

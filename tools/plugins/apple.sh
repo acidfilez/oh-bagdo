@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #apple goodies
 
 alias "apple-deriveddata"="cd ~/Library/Developer/Xcode/DerivedData"
