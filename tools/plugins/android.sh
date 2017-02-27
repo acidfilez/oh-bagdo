@@ -1,3 +1,4 @@
+#!/bin/bash
 
 #Bagdo alias for android
 

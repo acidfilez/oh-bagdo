@@ -1,3 +1,4 @@
+#!/bin/bash
 
 #Development Extra apps
 alias "st"="open -a SourceTree . "

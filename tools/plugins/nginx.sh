@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Nginx on your mac machine
 
 alias "nginx-local-start"="sudo nginx"
