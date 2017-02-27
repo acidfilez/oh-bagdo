@@ -72,7 +72,7 @@ bagdo-docker-run-terminal-user () { #run a container using an image with a defau
 
     echo -e "\033[38;5;148m 1 arg = $1  is the container name (not id)   \033[39m "
     echo -e "\033[38;5;148m 2 arg = $2  image name \033[39m "
-    echo -e "\033[38;5;148m 2 arg = $2  user to use\033[39m "
+    echo -e "\033[38;5;148m 3 arg = $3  user to use\033[39m "
 
     echo -e "\033[38;5;148m docker run -u $3 -ti --name $1 $2    \033[39m "
 
@@ -80,7 +80,7 @@ bagdo-docker-run-terminal-user () { #run a container using an image with a defau
 }
 
 
-bagdo-docker-commit () { #run a container using an image with a default user. #
+bagdo-docker-commit () { #commits the container #
 
     echo -e "\033[38;5;148m Docker Run  \033[39m"
 
@@ -92,9 +92,9 @@ bagdo-docker-commit () { #run a container using an image with a default user. #
     docker commit $1 $2
 }
 
-bagdo-docker-push () { #run a container using an image with a default user. #
+bagdo-docker-push () { #push a docker image to hub. #
 
-    echo -e "\033[38;5;148m Docker Run  \033[39m"
+    echo -e "\033[38;5;148m Docker Push, but first run a bagdo-docker-commit of the container then push  \033[39m"
 
     echo -e "\033[38;5;148m 1 arg = $1  is the image name to push (example: modyodx/ubuntu:1.0.1 \033[39m "
 

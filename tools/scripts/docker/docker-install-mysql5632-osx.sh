@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ROOT_SHARED_DOCKER_DATA="$HOME/DockerMysqlShared/mysql"
-MYSQL_MOUNT_AT="$ROOT_SHARED_DOCKER_DATA/msyql562"
+MYSQL_MOUNT_AT="$ROOT_SHARED_DOCKER_DATA/msyql_5632"
 MYSQL_STORAGE_MOUNT_AT="$MYSQL_MOUNT_AT/storage"
 MYSQL_CONF_MOUNT_AT="$MYSQL_MOUNT_AT/conf.d"
 MYSQL_PORT="3306"
@@ -57,16 +57,16 @@ docker run \
 --volume=$MYSQL_STORAGE_MOUNT_AT:/var/lib/mysql \
 mysql:5.6.32
 
-echo -e "\033[38;5;148m step 7: reseting the password to nul \033[39m"
+#echo -e "\033[38;5;148m step 7: reseting the password to nul \033[39m"
 
-while ! mysql --port=$MYSQL_PORT --password=$TEMP_PASSWORD --host=127.0.0.1 -e ";" ; do echo "Sleeping for $default_wait seconds to allow MySQL to initialise...\n" && sleep $default_wait; done;
-mysql --port=$MYSQL_PORT --password=$TEMP_PASSWORD --host=127.0.0.1 -e "select 'Mysql Is Ready' as Status;"
-mysql --port=$MYSQL_PORT --password=$TEMP_PASSWORD --host=127.0.0.1 -e "use mysql;update user set password='' where User='root';"
+# while ! mysql -p$MYSQL_PORT -P$TEMP_PASSWORD -h 127.0.0.1 -e ";" ; do echo "Sleeping for $default_wait seconds to allow MySQL to initialise...\n" && sleep $default_wait; done;
+# mysql -p$MYSQL_PORT -P$TEMP_PASSWORD -h 127.0.0.1 -e "select 'Mysql Is Ready' as Status;"
+# mysql -p$MYSQL_PORT -P$TEMP_PASSWORD -h 127.0.0.1 -e "use mysql;update user set password='' where User='root';"
 
-echo -e "\033[38;5;148m step 8: restarting mysql \033[39m"
+# echo -e "\033[38;5;148m step 8: restarting mysql \033[39m"
 
-docker stop $MYSQL_CONTAINER_NAME
-docker start $MYSQL_CONTAINER_NAME
+# docker stop $MYSQL_CONTAINER_NAME
+# docker start $MYSQL_CONTAINER_NAME
 
 }
 
