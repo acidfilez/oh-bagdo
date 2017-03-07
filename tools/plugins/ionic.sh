@@ -16,7 +16,7 @@ bagdo-ionic-release-android () { #ionic full android release #
 
     read VERSION_TAG
 
-    ionic state reset
+    #ionic state reset
 
     echo -e "\033[38;5;148m Please Run Your Apps First, to check if they are Okey \033[39m"
 
