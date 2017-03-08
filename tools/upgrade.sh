@@ -101,11 +101,10 @@ ohBagdoLogo()
   printf '%s\n' '▒█░░░ ▒█░ ▒█▀▄░ ▒█▀▀▀ 　 ▒█▄▄█ 　 ▒█▀▀▄ ▒█░░▒█ ░▀▀▀▄   ░▀▀▀▄     '
   printf '%s\n' '▒█▄▄█ ▄█▄ ▒█░▒█ ▒█▄▄▄ 　 ▒█░▒█ 　 ▒█▄▄█ ▒█▄▄▄█ ▒█▄▄▄█▒█▄▄▄█      '
   printf '%s\n' '                                                                '
-  printf '%s\n' ' version 2.3.1'
+  printf '%s\n' ' version 2.3.2'
   printf '%s\n' ' what´s up:'
   printf '%s\n' ' '
-  printf '%s\n' '   - fixes'
-  printf '%s\n' '   - new docker'
+  printf '%s\n' '   - bagod-ionic-build-ios and bagod-ionic-build-ios added'
   printf '%s\n' '                                                                '
   printf '%s' "$NORMAL"
 }

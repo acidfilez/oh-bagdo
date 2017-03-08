@@ -115,6 +115,20 @@ bagdo-ionic-build () { #builds ionic for ios and android #
    ionic build android &
 }
 
+bagdo-ionic-build-ios () { #builds ionic for ios and android #
+
+   echo -e "\033[38;5;148m Ionic builds for IOS \033[39m"
+   echo "Executing: ionic build ios"
+   ionic build ios
+}
+
+bagdo-ionic-build-android () { #builds ionic for ios and android #
+
+   echo -e "\033[38;5;148m Ionic builds for Android \033[39m"
+   echo "Executing: ionic build android"
+   ionic build android
+}
+
 bagdo-ionic-open-xcode () { #open ionic ios xcode project#
 
    echo -e "\033[38;5;148m Opens Ionic iOS Xcode Project \033[39m"
