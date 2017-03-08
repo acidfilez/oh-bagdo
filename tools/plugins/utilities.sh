@@ -134,3 +134,12 @@ bagdo-utils-find-file-with-text () { #Finds the files with a specific text recur
     grep -rni $1 -e $2
 }
 
+
+
+bagdo-utils-lock-account () { #Suspend Account#
+
+    echo -e "\033[38;5;148m Suspens your account to your lock screen \033[39m"
+
+    /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
+}
+

@@ -105,6 +105,7 @@ ohBagdoLogo()
   printf '%s\n' ' what´s up:'
   printf '%s\n' ' '
   printf '%s\n' '   - bagod-ionic-build-ios and bagod-ionic-build-ios added'
+  printf '%s\n' '   - bagdo-utils-lock-account'
   printf '%s\n' '                                                                '
   printf '%s' "$NORMAL"
 }
