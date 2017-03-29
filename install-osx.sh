@@ -141,7 +141,11 @@ cat <<END >$ROOT_BAGDORC_FILE
     #source $BAGDO_TARGET/tools/plugins/ruby.sh
 
     #Enable ruby-gems commands (torquebox etc)
-    #source $HOME_BAGDO/tools/plugins/ruby-gems/torquebox.sh
+    #source $BAGDO_TARGET/tools/plugins/ruby-gems/torquebox.sh
+
+    #Enable php commands
+    source $BAGDO_TARGET/tools/plugins/php/php.sh
+    source $BAGDO_TARGET/tools/plugins/php/laravel.sh
 END
 
 fi

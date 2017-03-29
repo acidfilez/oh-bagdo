@@ -93,6 +93,10 @@ cat <<END >$bagdorc
 
     #Enable ruby-gems commands (torquebox etc)
     #source $HOME_BAGDO/tools/plugins/ruby-gems/torquebox.sh
+
+    #Enable php commands
+    source $HOME_BAGDO/tools/plugins/php/php.sh
+    source $HOME_BAGDO/tools/plugins/php/laravel.sh
 END
 }
 
