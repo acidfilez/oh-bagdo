@@ -143,3 +143,11 @@ bagdo-utils-lock-account () { #Suspend Account#
     /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
 }
 
+
+bagdo-utils-git-revision () { #Get Git Revision#
+
+    echo -e "\033[38;5;148m Get git revision \033[39m"
+
+    git rev-parse --short HEAD
+}
+

@@ -101,7 +101,8 @@ END
 }
 
 #finnaly check update, this will check git status, and ask to upgrade if necesary.
-/bin/sh $HOME_BAGDO/tools/upgrade.sh
+#/bin/sh $HOME_BAGDO/tools/upgrade.sh
+zsh $HOME_BAGDO/tools/upgrade.sh
 
 #check if the plugins are loaded
 if [ -f "$bagdorc" ];

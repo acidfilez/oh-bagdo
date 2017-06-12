@@ -49,9 +49,9 @@ bagdo-docker-login-default () { #log into the contaier as the default user #
 
     CONTAINER_ID=$(docker ps -f 'name=$1' -q)
 
-    echo -e "\033[38;5;148m docker exec -it $CONTAINER_ID /bin/bash   \033[39m "
+    echo -e "\033[38;5;148m docker exec -it $1 /bin/bash   \033[39m "
 
-    docker exec -it $CONTAINER_ID /bin/bash
+    docker exec -it $1 /bin/bash
 }
 
 bagdo-docker-login-user () { #log into the contaier as a user #
