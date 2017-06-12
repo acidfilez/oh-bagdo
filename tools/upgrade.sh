@@ -101,10 +101,11 @@ ohBagdoLogo()
   printf '%s\n' '▒█░░░ ▒█░ ▒█▀▄░ ▒█▀▀▀ 　 ▒█▄▄█ 　 ▒█▀▀▄ ▒█░░▒█ ░▀▀▀▄   ░▀▀▀▄     '
   printf '%s\n' '▒█▄▄█ ▄█▄ ▒█░▒█ ▒█▄▄▄ 　 ▒█░▒█ 　 ▒█▄▄█ ▒█▄▄▄█ ▒█▄▄▄█▒█▄▄▄█      '
   printf '%s\n' '                                                                '
-  printf '%s\n' ' version 2.3.3'
+  printf '%s\n' ' version 2.3.4'
   printf '%s\n' ' what´s up:'
   printf '%s\n' ' '
   printf '%s\n' '   - bagdo php laravel added'
+  printf '%s\n' '   - upgrade fix for linux'
   printf '%s\n' '                                                                '
   printf '%s' "$NORMAL"
 }

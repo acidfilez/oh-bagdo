@@ -114,7 +114,7 @@ bagdo-docker-delete-all-containers () { #deletes all container #
     docker rm $(docker ps -a -q) --force
 }
 
-bagdo-docker-delete-all-images () { #deletes all iamges #
+bagdo-docker-delete-all-images () { #deletes all images #
 
     echo -e "\033[38;5;148m Delete all images  \033[39m"
 
@@ -123,3 +123,35 @@ bagdo-docker-delete-all-images () { #deletes all iamges #
     docker rmi $(docker images -q) --force
 }
 
+bagdo-docker-run-mariadb () { #run docker mariadb
+
+    ROOT_SHARED_DOCKER_DATA="$HOME/DockerMariaDBShared/mariadb"
+    MARIADB_MOUNT_AT="$ROOT_SHARED_DOCKER_DATA/mariadb_10123"
+    MARIADB_STORAGE_MOUNT_AT="$MARIADB_MOUNT_AT/storage"
+    MARIADB_CONF_MOUNT_AT="$MARIADB_MOUNT_AT/conf.d"
+    MARIADB_PORT="3333"
+    MARIADB_CONTAINER_NAME="mariadb_10.1.23"
+    TEMP_PASSWORD="mypass"
+
+    echo -e "\033[38;5;148m Docker Run Detach Mariadb  \033[39m"
+    echo -e "\033[38;5;148m 1 arg = $1  is the container name example mariadb   \033[39m "
+
+
+    echo -e "\033[38;5;148m docker remove the docker / stop the docker \033[39m "
+
+    docker stop "$MARIADB_CONTAINER_NAME";docker rm "$MARIADB_CONTAINER_NAME"
+
+    echo -e "\033[38;5;148m docker run detach mariadb password mypass port \033[39m "
+    echo -e "\033[38;5;148m MARIADB_CONF_MOUNT_AT: $MARIADB_CONF_MOUNT_AT \033[39m "
+    echo -e "\033[38;5;148m MARIADB_STORAGE_MOUNT_AT: $MARIADB_STORAGE_MOUNT_AT \033[39m "
+
+    docker run \
+    --detach \
+    --name=$MARIADB_CONTAINER_NAME \
+    --env="MYSQL_ROOT_PASSWORD=mypass" \
+    --publish $MARIADB_PORT:3306 \
+    --volume=$MARIADB_CONF_MOUNT_AT:/etc/mysql/conf.d \
+    --volume=$MARIADB_STORAGE_MOUNT_AT:/var/lib/mysql \
+    mariadb:10.1.23
+
+}
