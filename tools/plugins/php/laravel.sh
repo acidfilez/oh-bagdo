@@ -59,6 +59,14 @@ bagdo-art-db-seed() { # seed #
 }
 
 
+bagdo-art-migrate-seed() { # seed #
+
+  echo -e "\033[38;5;148m php artisan migrate:refresh --seed \033[39m"
+
+  php artisan migrate:refresh --seed
+}
+
+
 bagdo-laravel-run() { # laravel run server watch #
 
   echo -e "\033[38;5;148m npm run watch \033[39m"
